@@ -1,6 +1,11 @@
 from models import subject
 from config import db_connection
 import pyfiglet
+import os
+from dotenv import load_dotenv
+
+#Load Environment variables
+load_dotenv()
 
 def create_banner(text, font="standard"):
     banner = pyfiglet.figlet_format(text, font=font)
@@ -12,7 +17,6 @@ dbcursor = mydb.cursor()
 def main():
 
     campus_subjects = subject.subjects(mydb, dbcursor)
-
     create_banner("OUSL Tool")
     while True:
         print("\n")
